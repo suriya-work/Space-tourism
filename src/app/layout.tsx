@@ -45,7 +45,7 @@ export default function RootLayout({
           sizes='180x180'
           href='/SpacShip-Tourism.png'
         />
-        <link rel='shortcut icon' href='/favicon.ico' />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       </Head>
       <body className={`${bellefair.variable} ${barlow.variable} bg-primary`}>
         {children}
