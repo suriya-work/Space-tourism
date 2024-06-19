@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation'
 import desktop from '@/assets/home/background-home-desktop.jpg'
 import mobile from '@/assets/home/background-home-mobile.jpg'
 import tablet from '@/assets/home/background-home-tablet.jpg'
-import Background from '@/components/Background'
-import MotionDiv from '@/components/MotionDiv'
+import Background from '@/components/globals/Background'
+import MotionDiv from '@/components/globals/MotionDiv'
 import { SLIDE_LEFT, SLIDE_RIGHT } from '@/lib/data'
 
 export default function Home() {
