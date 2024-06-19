@@ -6,9 +6,6 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
   "rules": {
     "no-console": "error",
     "prefer-const": "error",
