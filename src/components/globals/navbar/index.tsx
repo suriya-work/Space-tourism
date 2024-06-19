@@ -26,7 +26,7 @@ export default function Navbar() {
         <Image src={logo} width={48} height={48} alt='Logo' />
       </div>
       <div className='absolute left-48 right-0  w-[500px] lg:flex hidden top-[40px] border-t border-white-5'></div>
-      <ul className='lg:bg-white-5 bg-white-6  flex justify-center gap-20 items-center lg:w-[736px] w-[640px] h-[76px] absolute right-0'>
+      <ul className='lg:bg-white-5 bg-white-6  flex justify-center gap-20 items-center lg:w-[736px] w-[640px] h-[76px] relative lg:translate-x-[613px] translate-x-32 right-0'>
         {ListItemsNavbar.map((item, index) => {
           const isActive = pathname === item.href
           return (
