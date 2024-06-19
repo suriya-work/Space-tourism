@@ -116,6 +116,7 @@ function Navbar() {
               <span className='block'>{title}</span>
               {isActive(href) && (
                 <motion.span
+                  layoutId='underline'
                   className='absolute bottom-0 right-0 h-full w-1 md:w-full md:h-1 bg-white'
                 />
               )}
