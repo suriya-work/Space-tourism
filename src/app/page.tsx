@@ -20,10 +20,10 @@ export default function Home() {
         desktop={desktop.src}
       />
 
-      <main className=' relative z-10 min-h-[80vh] flex flex-col justify-evenly items-center lg:flex-row lg:items-end lg:justify-between lg:p-32'>
+      <main className='relative z-10 min-h-[80vh] flex flex-col justify-evenly items-center lg:flex-row lg:items-end lg:justify-between lg:p-32'>
         <motion.div
           variants={SLIDE_RIGHT}
-          className={`  font-primary text-secondary text-center px-4 md:max-w-lg md:mx-auto lg:mx-0 lg:text-left`}
+          className={`font-primary text-secondary text-center px-4 md:max-w-lg md:mx-auto lg:mx-0 lg:text-left`}
         >
           <span
             className={`  nav-text text-lg uppercase lg:-translate-x-8 lg:text-3xl `}
