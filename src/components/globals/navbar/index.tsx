@@ -10,7 +10,7 @@ import React, { useCallback, useState } from 'react'
 import close from '@/assets/shared/icon-close.svg'
 import hamburger from '@/assets/shared/icon-hamburger.svg'
 import logo from '@/assets/shared/logo.svg'
-import { SLIDE_LEFT, SLIDE_RIGHT } from '@/lib/data'
+import { FADE, SLIDE_LEFT, SLIDE_RIGHT } from '@/lib/data'
 
 const pages = [
   {
@@ -91,10 +91,17 @@ function Navbar() {
         />
       </motion.button>
 
-      <div className='bar grow hidden lg:block h-0.5  bg-white/70 translate-x-8 relative z-20'></div>
+      <motion.div
+        key={Math.random().toString()}
+        variants={FADE}
+        initial='hidden'
+        animate='visible'
+        exit='exit'
+        className='bar grow hidden lg:block h-0.5  bg-white-5 translate-x-8 relative z-20'
+      ></motion.div>
 
       <motion.ul
-        className={` list-none bg-[#97979729] transition rounded-l-md backdrop-blur-xl  fixed top-0 right-0 h-screen w-64 z-0 pt-28 pl-8 md:relative md:h-24 md:w-fit md:px-12 md:pt-0 md:translate-x-0 md:flex md:justify-center md:items-center md:gap-x-12
+        className={` list-none bg-white-6 transition rounded-l-md backdrop-blur-xl  fixed top-0 right-0 h-screen w-64 z-0 pt-28 pl-8 md:relative md:h-24 md:w-fit md:px-12 md:pt-0 md:translate-x-0 md:flex md:justify-center md:items-center md:gap-x-12
           lg:min-w-[50vw] ${!opened ? '  translate-x-80' : opened ? '-translate-x-0' : 'translate-x-0'}`}
       >
         {pages.map(({ title, href }, index) => (
