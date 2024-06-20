@@ -1,5 +1,11 @@
-const CrewPage = () => {
-  return <div>this is crew page</div>
+import CrewPage from '@/components/pages/crew'
+
+const Crew = () => {
+  return (
+    <div>
+      <CrewPage />
+    </div>
+  )
 }
 
-export default CrewPage
+export default Crew
