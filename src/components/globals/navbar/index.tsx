@@ -5,11 +5,12 @@ import { Barlow_Condensed } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 
 import close from '@/assets/shared/icon-close.svg'
 import hamburger from '@/assets/shared/icon-hamburger.svg'
 import logo from '@/assets/shared/logo.svg'
+import useOutSideClick from '@/hooks/useOutSideClick'
 import { FADE, SLIDE_LEFT, SLIDE_RIGHT } from '@/lib/data'
 
 const pages = [
@@ -42,7 +43,17 @@ function Navbar() {
 
   const path = usePathname()
 
+  const ref = useRef<HTMLUListElement>(null)
+
+  useOutSideClick(ref, () => {
+    if (opened) setOpened(false)
+  })
+
   const isActive = useCallback((href: string) => path === href, [path])
+
+  const toggleMenu = () => {
+    setOpened((state) => !state)
+  }
 
   return (
     <header
@@ -70,9 +81,7 @@ function Navbar() {
         initial='hidden'
         animate='visible'
         exit='exit'
-        onClick={() => {
-          setOpened((state) => !state)
-        }}
+        onClick={toggleMenu}
         className='relative z-20 w-6 h-6 md:hidden'
       >
         <Image
@@ -101,14 +110,13 @@ function Navbar() {
       ></motion.div>
 
       <motion.ul
+        ref={ref}
         className={` list-none bg-white-6 transition rounded-l-md backdrop-blur-xl  fixed top-0 right-0 h-screen w-64 z-0 pt-28 pl-8 md:relative md:h-24 md:w-fit md:px-12 md:pt-0 md:translate-x-0 md:flex md:justify-center md:items-center md:gap-x-12
           lg:min-w-[50vw] ${!opened ? '  translate-x-80' : opened ? '-translate-x-0' : 'translate-x-0'}`}
       >
         {pages.map(({ title, href }, index) => (
           <Link
-            onClick={() => {
-              setOpened((state) => !state)
-            }}
+            onClick={toggleMenu}
             key={index}
             href={href}
             className='nav-text uppercase relative text-white md:h-full'
