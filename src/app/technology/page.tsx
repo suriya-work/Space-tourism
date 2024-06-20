@@ -1,5 +1,11 @@
-const TechnologyPage = () => {
-  return <div></div>
+import TechnologyPage from '@/components/pages/technology'
+
+const Technology = () => {
+  return (
+    <div>
+      <TechnologyPage />
+    </div>
+  )
 }
 
-export default TechnologyPage
+export default Technology
