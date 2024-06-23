@@ -1,21 +1,9 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
 
 import { FADE } from '@/lib/data'
+import { DestinationtType } from '@/types/destination'
 
-export default function PageEuropa() {
-  const [distance, setDistance] = useState(384400)
-  const [travelTime, setTravelTime] = useState(1)
-
-  useEffect(() => {
-    const updateInterval = 24 * 60 * 60
-
-    const intervalId = setInterval(() => {
-      setDistance((prevDistance) => prevDistance + 1000)
-      setTravelTime((prevTravelTime) => prevTravelTime + 1)
-    }, updateInterval)
-    return () => clearInterval(intervalId)
-  }, [])
+export default function PageEuropa({ distance, travelTime }: DestinationtType) {
   return (
     <div className={` flex flex-col lg:items-start items-center gap-y-5`}>
       <h1 className='text-white font-normal '>EUROPA</h1>
@@ -40,11 +28,11 @@ export default function PageEuropa() {
       <div className='flex md:flex-row flex-col md:gap-20 gap-5 md:text-start text-center mt-5'>
         <div className='flex flex-col gap-y-2 '>
           <span className='text-secondary lg:text-lg'>AVG. DISTANCE</span>
-          <h5 className='text-white'>{distance.toLocaleString()} km</h5>
+          <h5 className='text-white'>{distance} </h5>
         </div>
         <div className='flex flex-col gap-y-2 items-center'>
           <span className='text-secondary lg:text-lg'>Est. travel time</span>
-          <h5 className='text-white'>{travelTime} days</h5>
+          <h5 className='text-white'>{travelTime} </h5>
         </div>
       </div>
     </div>

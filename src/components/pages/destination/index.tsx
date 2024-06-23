@@ -12,7 +12,7 @@ import moon from '@/assets/destination/image-moon.png'
 import titan from '@/assets/destination/image-titan.png'
 import Background from '@/components/globals/Background'
 import PageTitle from '@/components/globals/PageTitle'
-import { SLIDE_RIGHT } from '@/lib/data'
+import { SLIDE_LEFT, SLIDE_RIGHT } from '@/lib/data'
 
 import PageEuropa from './europa'
 import PageMars from './mars'
@@ -29,22 +29,22 @@ const destinations: Destination[] = [
   {
     title: 'Moon',
     image: moon,
-    description: <PageMoon />,
+    description: <PageMoon distance={'384000 KM'} travelTime={'2 DAYS'} />,
   },
   {
     title: 'Mars',
     image: mars,
-    description: <PageMars />,
+    description: <PageMars distance={'225 MIL. KM'} travelTime={'9 MONTH'} />,
   },
   {
     title: 'Europa',
     image: europa,
-    description: <PageEuropa />,
+    description: <PageEuropa distance={'682 MIL. KM'} travelTime={'3 YEARS'} />,
   },
   {
     title: 'Titan',
     image: titan,
-    description: <PageTitan />,
+    description: <PageTitan distance={'1.6 BIL. km'} travelTime={'7 YEARS'} />,
   },
 ]
 
@@ -65,8 +65,8 @@ const DestinationPage = () => {
         desktop={desktop.src}
       />
       <PageTitle number={1} title='pick your destination' />
-      <div className='relative lg:px-36 flex lg:flex-row flex-col justify-between lg:items-start items-center'>
-        <div className='flex items-center lg:py-32 py-20'>
+      <motion.div className='relative  flex lg:flex-row flex-col justify-around  items-center h-[50vh] mt-16'>
+        <div className='flex items-center mt-10'>
           <motion.div
             key={Math.random().toString()}
             variants={SLIDE_RIGHT}
@@ -77,36 +77,45 @@ const DestinationPage = () => {
             <Image
               src={currentDestination.image}
               alt={`image-${currentDestination.title}`}
-              className='lg:w-[480px] lg:h-[480px] md:w-[300px] md:h-[300px] w-[150px] h-[150px]'
+              className='lg:w-[400px] lg:h-[400px] md:w-[300px] md:h-[300px] w-[200px] h-[200px] '
             />
           </motion.div>
         </div>
-        <div>
+        <motion.div
+          variants={SLIDE_LEFT}
+          initial='hidden'
+          animate='visible'
+          exit='exit'
+          className='h-full flex items-center justify-center mt-16'
+        >
           <div>
-            <motion.ul className='flex items-center gap-10 list-none lg:mt-32'>
+            <motion.ul className='flex items-center lg:justify-start justify-center gap-10 list-none '>
               {destinations.map((destination, index) => (
                 <motion.li
                   key={index}
                   onClick={() => handleDestinationClick(destination)}
-                  className={`nav-text uppercase transition text-white cursor-pointer ${currentDestination.title === destination.title ? 'active' : ''}`}
+                  className={`nav-text uppercase transition text-white h-[10px] cursor-pointer ${currentDestination.title === destination.title ? 'active' : ''}`}
                 >
                   <motion.div
-                    className={`flex w-full transition border-b-4 border-transparent ${currentDestination.title === destination.title ? 'border-white' : 'hover:border-white/50'}`}
+                    className={`flex w-full relative transition  border-transparent ${currentDestination.title === destination.title ? 'border-white' : 'hover:border-white/50'}`}
                   >
                     <span className='block mb-2'>{destination.title}</span>
                     {currentDestination.title === destination.title && (
-                      <motion.span className='bg-white h-2' />
+                      <motion.span
+                        layoutId='underline-text'
+                        className='absolute bottom-0 right-0 w-full h-1 bg-white'
+                      />
                     )}
                   </motion.div>
                 </motion.li>
               ))}
             </motion.ul>
             <div className='mt-8 text-white'>
-              <p className='mt-4'>{currentDestination.description}</p>
+              <div className='mt-4'>{currentDestination.description}</div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
