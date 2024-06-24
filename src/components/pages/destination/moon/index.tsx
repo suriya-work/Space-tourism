@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
 import { FADE } from '@/lib/data'
-import { DestinationtType } from '@/types/destination'
+import { DestinationtPropsType } from '@/types/destination'
 
-export default function PageMoon({ distance, travelTime }: DestinationtType) {
+export default function PageMoon({ distance, travelTime }:DestinationtPropsType) {
   return (
     <div className={` flex flex-col lg:items-start items-center gap-y-5`}>
       <h1 className='text-white font-normal '>MOON</h1>
