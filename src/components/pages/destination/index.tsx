@@ -93,7 +93,7 @@ const DestinationPage = () => {
                   <motion.div
                     className={`flex w-full relative transition  border-transparent ${currentDestination.title === destination.title ? 'border-white' : 'hover:border-white/50'}`}
                   >
-                    <span className='block mb-2'>{destination.title}</span>
+                    <span className='block mb-3'>{destination.title}</span>
                     {currentDestination.title === destination.title && (
                       <motion.span
                         layoutId='underline-text'

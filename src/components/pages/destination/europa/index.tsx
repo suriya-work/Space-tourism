@@ -1,11 +1,20 @@
 import { motion } from 'framer-motion'
 
-import { FADE } from '@/lib/data'
+import { FADE, SLIDE_LEFT } from '@/lib/data'
 import { DestinationtPropsType } from '@/types/destination'
 
-export default function PageEuropa({ distance, travelTime }: DestinationtPropsType) {
+export default function PageEuropa({
+  distance,
+  travelTime,
+}: DestinationtPropsType) {
   return (
-    <div className={` flex flex-col lg:items-start items-center gap-y-5`}>
+    <motion.div
+      variants={SLIDE_LEFT}
+      initial='hidden'
+      animate='visible'
+      exit='exit'
+      className={` flex flex-col lg:items-start items-center gap-y-5`}
+    >
       <h1 className='text-white font-normal '>EUROPA</h1>
       <div
         className={`font-primary text-secondary lg:text-start text-center md:max-w-96 max-w-96 `}
@@ -35,6 +44,6 @@ export default function PageEuropa({ distance, travelTime }: DestinationtPropsTy
           <h5 className='text-white'>{travelTime} </h5>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
