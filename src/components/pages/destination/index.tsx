@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image, { StaticImageData } from 'next/image'
-import { ReactNode, useState } from 'react'
+import Image from 'next/image'
+import { useState } from 'react'
 
 import desktop from '@/assets/destination/background-destination-desktop.jpg'
 import mobile from '@/assets/destination/background-destination-mobile.jpg'
@@ -13,19 +13,14 @@ import titan from '@/assets/destination/image-titan.png'
 import Background from '@/components/globals/Background'
 import PageTitle from '@/components/globals/PageTitle'
 import { SLIDE_LEFT, SLIDE_RIGHT } from '@/lib/data'
+import { DestinationDataType } from '@/types/destination'
 
 import PageEuropa from './europa'
 import PageMars from './mars'
 import PageMoon from './moon'
 import PageTitan from './titan'
 
-interface Destination {
-  title: string
-  image: StaticImageData
-  description: ReactNode
-}
-
-const destinations: Destination[] = [
+const destinations: DestinationDataType[] = [
   {
     title: 'Moon',
     image: moon,
@@ -49,11 +44,10 @@ const destinations: Destination[] = [
 ]
 
 const DestinationPage = () => {
-  const [currentDestination, setCurrentDestination] = useState<Destination>(
-    destinations[0]
-  )
+  const [currentDestination, setCurrentDestination] =
+    useState<DestinationDataType>(destinations[0])
 
-  const handleDestinationClick = (destination: Destination) => {
+  const handleDestinationClick = (destination: DestinationDataType) => {
     setCurrentDestination(destination)
   }
 
