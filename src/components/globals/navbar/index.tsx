@@ -1,5 +1,6 @@
 'use client'
 
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import { motion } from 'framer-motion'
 import { Barlow_Condensed } from 'next/font/google'
 import Image from 'next/image'
@@ -75,30 +76,24 @@ function Navbar() {
         </Link>
       </motion.div>
 
-      <motion.button
+      <motion.div
         key={Math.random().toString()}
         variants={SLIDE_LEFT}
         initial='hidden'
         animate='visible'
         exit='exit'
-        onClick={toggleMenu}
-        className='relative z-20 w-6 h-6 md:hidden'
+        className='relative z-20 md:hidden flex items-center justify-center gap-8'
       >
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
         <Image
+          onClick={toggleMenu}
           src={hamburger}
           alt='Icon Menu Open'
-          className={`transition ${
-            opened && ' opacity-0'
-          }  absolute top-1/2 right-0 -translate-y-1/2 w-full h-full`}
+          className={` ${opened && ' opacity-0'} cursor-pointer`}
         />
-        <Image
-          src={close}
-          alt='Icon Menu Close'
-          className={`transition ${
-            opened && ' opacity-100'
-          } opacity-0  absolute top-1/2 right-0 -translate-y-1/2 w-full h-full`}
-        />
-      </motion.button>
+      </motion.div>
 
       <motion.div
         key={Math.random().toString()}
@@ -111,9 +106,17 @@ function Navbar() {
 
       <motion.ul
         ref={ref}
-        className={` list-none bg-white-6 transition rounded-l-md backdrop-blur-xl  fixed top-0 right-0 h-screen w-64 z-0 pt-28 pl-8 md:relative md:h-24 md:w-fit md:px-12 md:pt-0 md:translate-x-0 md:flex md:justify-center md:items-center md:gap-x-12
+        className={` list-none bg-white-6 transition rounded-l-md backdrop-blur-xl  fixed top-0 right-0 h-screen w-64 z-20 pt-28 pl-8 md:relative md:h-24 md:w-fit md:px-12 md:pt-0 md:translate-x-0 md:flex md:justify-center md:items-center md:gap-x-12
           lg:min-w-[50vw] ${!opened ? '  translate-x-80' : opened ? '-translate-x-0' : 'translate-x-0'}`}
       >
+        <Image
+          onClick={toggleMenu}
+          src={close}
+          alt='Icon Menu Close'
+          className={`transition ${
+            opened ? ' opacity-100' : 'opacity-0'
+          }  absolute top-12 right-6 -translate-y-1/2 z-30 cursor-pointer md:hidden`}
+        />
         {pages.map(({ title, href }, index) => (
           <Link
             onClick={toggleMenu}
@@ -138,6 +141,18 @@ function Navbar() {
             </motion.li>
           </Link>
         ))}
+        <SignedOut>
+          <div className=' w-full flex items-center justify-center md:justify-start'>
+            <button className='nav-text uppercase relative hover:text-white hover:bg-transparent transition-all duration-300 md:w-[90px] w-full md:mr-0 mr-5 flex items-center justify-center py-2 rounded-lg border-2 border-white/50 hover:border-white bg-white text-black'>
+              <SignInButton />
+            </button>
+          </div>
+        </SignedOut>
+        <SignedIn>
+          <div className=' md:block hidden'>
+            <UserButton />
+          </div>
+        </SignedIn>
       </motion.ul>
     </header>
   )

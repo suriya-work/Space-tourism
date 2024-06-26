@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.1.6",
     "@mantine/hooks": "^7.10.2",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "eslint-config-prettier": "^9.1.0",
