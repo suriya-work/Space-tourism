@@ -23,9 +23,9 @@ export default function TechnologyPage() {
         tablet={tablet.src}
         desktop={desktop.src}
       />
+      <PageTitle number={3} title='Space Launch 101' />
       <main className='relative z-10 w-full mt-10 '>
-        <PageTitle number={3} title='Space Launch 101' />
-        <div className='flex flex-col lg:flex-row-reverse mt-5 lg:pl-44'>
+        <div className='flex flex-col lg:flex-row-reverse mt-5 lg:pl-24'>
           <div className='w-full lg:w-[35%] lg:min-h-[35vh] '>
             <motion.picture
               key={technology.name}

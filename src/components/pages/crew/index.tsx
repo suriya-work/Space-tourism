@@ -33,27 +33,24 @@ const CrewPage = () => {
         mobile={mobile.src}
         tablet={tablet.src}
       />
-      <main className='relative z-10 flex flex-col-reverse p-6 md:px-24 lg:pt-12 lg:min-h-[80vh] lg:grid lg:grid-cols-2'>
-        <div className='flex flex-col-reverse relative z-10 lg:flex-col lg:justify-between'>
-          <div className='hidden lg:block'>
-            <PageTitle number={2} title='Meet Your crew' />
-          </div>
-
-          <div className='text-secondary text-center lg:text-left'>
-            <h4 className='uppercase mb-4  text-[16px] lg:text-[32px] '>
+      <PageTitle number={2} title='Meet Your crew' />
+      <main className='relative  z-10 flex md:flex-row h-[70vh] flex-col items-center justify-evenly w-full mt-5 '>
+        <div className='flex flex-col relative z-10 md:gap-5 gap-2 px-20 pt-10'>
+          <div className='text-secondary text-center md:text-left'>
+            <h4 className='uppercase mb-4  text-[16px] md:text-[32px] '>
               {' '}
               {member.role}{' '}
             </h4>
-            <h3 className='uppercase text-white mb-7 text-[24px] lg:text-[56px] '>
+            <h3 className='uppercase text-white mb-7 text-[24px] md:text-[56px] '>
               {' '}
               {member.name}{' '}
             </h3>
-            <p className='leading-relaxed lg:text-[18px] '>
+            <p className='leading-relaxed md:text-[18px] '>
               {' '}
               {member.description}{' '}
             </p>
           </div>
-          <div className='flex gap-x-6 my-8 justify-center lg:justify-start'>
+          <div className='flex gap-x-6 my-8 justify-center md:justify-start'>
             {CREW_MEMBERS.map(({ name }, index) => (
               <div
                 onClick={() => setActual(index)}
@@ -69,18 +66,15 @@ const CrewPage = () => {
           <motion.div
             key={member.name}
             variants={variant}
-            className='border-b border-white/50 w-full md:fixed md:bottom-0 md:right-0 md:w-screen md:h-[532px]  lg:h-[712px] '
+            className=' md:pr-10 w-full flex items-center justify-center'
           >
             <Image
               src={member.image}
               alt={member.role}
-              className='block mx-auto w-auto h-[222px] md:h-full lg:mx-0 lg:ml-auto lg:mr-20 lg:mt-0 md:mt-14'
+              className='w-[330px] md:w-[500px] '
             />
           </motion.div>
         </AnimatePresence>
-        <div className='lg:hidden mb-5'>
-          <PageTitle number={2} title='Meet Your crew' />
-        </div>
       </main>
     </MotionDiv>
   )
