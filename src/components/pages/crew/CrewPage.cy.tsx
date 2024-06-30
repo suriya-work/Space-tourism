@@ -5,7 +5,7 @@ import CrewPage from '.'
 // Cypress Component Test
 describe('<CrewPageComponent />', () => {
   it('should render and display expected content', () => {
-    // Mount the React component for the About page
+    // Mount the React component for the crew page
     cy.mount(<CrewPage />)
 
     // The new page should contain an h1 with "02 meet your crew"
