@@ -1,9 +1,9 @@
 'use client'
 
 import { usePrevious } from '@mantine/hooks'
-import { AnimatePresence } from 'framer-motion'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
+import React from 'react'
 import { useMemo, useState } from 'react'
 
 import desktop from '@/assets/crew/background-crew-desktop.jpg'
@@ -33,7 +33,7 @@ const CrewPage = () => {
         mobile={mobile.src}
         tablet={tablet.src}
       />
-      <PageTitle number={2} title='Meet Your crew' />
+      <PageTitle number={2} title='meet your crew' />
       <main className='relative  z-10 flex md:flex-row h-[70vh] flex-col items-center justify-evenly w-full mt-5 '>
         <div className='flex flex-col relative z-10 md:gap-5 gap-2 px-20 pt-10'>
           <div className='text-secondary text-center md:text-left'>
