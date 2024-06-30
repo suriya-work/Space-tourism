@@ -1,5 +1,5 @@
 {
-  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "unused-imports", "simple-import-sort"],
   "extends": [
     "plugin:@next/next/recommended",
     "next/core-web-vitals",
@@ -15,6 +15,7 @@
     "simple-import-sort/exports": "error",
     "no-shadow": "off",
     "react/prop-types": "off",
-    "eslint-plugin-import/no-extraneous-dependencies": "off"
+    "eslint-plugin-import/no-extraneous-dependencies": "off",
+    "unused-imports/no-unused-imports": "error"
   }
 }
