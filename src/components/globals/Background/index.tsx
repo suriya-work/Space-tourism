@@ -8,7 +8,7 @@ interface BackgroundProps {
 
 const Background = ({ mobile, tablet, desktop }: BackgroundProps) => {
   return (
-    <div className=' fixed z-0  h-screen w-screen top-0 left-0'>
+    <div className='fixed left-0 top-0 z-0 h-screen w-screen'>
       <picture>
         <source media='(min-width:1024px)' srcSet={desktop} />
         <source media='(min-width:768px)' srcSet={tablet} />

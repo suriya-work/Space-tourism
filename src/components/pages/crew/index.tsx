@@ -34,28 +34,28 @@ const CrewPage = () => {
         tablet={tablet.src}
       />
       <PageTitle number={2} title='meet your crew' />
-      <main className='relative  z-10 flex md:flex-row h-[70vh] flex-col items-center justify-evenly w-full mt-5 '>
-        <div className='flex flex-col relative z-10 md:gap-5 gap-2 px-20 pt-10'>
-          <div className='text-secondary text-center md:text-left'>
-            <h4 className='uppercase mb-4  text-[16px] md:text-[32px] '>
+      <main className='relative z-10 mt-5 flex h-[70vh] w-full flex-col items-center justify-evenly md:flex-row'>
+        <div className='relative z-10 flex flex-col gap-2 px-20 pt-10 md:gap-5'>
+          <div className='text-center text-secondary md:text-left'>
+            <h4 className='mb-4 text-[16px] uppercase md:text-[32px]'>
               {' '}
               {member.role}{' '}
             </h4>
-            <h3 className='uppercase text-white mb-7 text-[24px] md:text-[56px] '>
+            <h3 className='mb-7 text-[24px] uppercase text-white md:text-[56px]'>
               {' '}
               {member.name}{' '}
             </h3>
-            <p className='leading-relaxed md:text-[18px] '>
+            <p className='leading-relaxed md:text-[18px]'>
               {' '}
               {member.description}{' '}
             </p>
           </div>
-          <div className='flex gap-x-6 my-8 justify-center md:justify-start'>
+          <div className='my-8 flex justify-center gap-x-6 md:justify-start'>
             {CREW_MEMBERS.map(({ name }, index) => (
               <div
                 onClick={() => setActual(index)}
                 key={index}
-                className={`w-3 aspect-square rounded-full transition cursor-pointer opacity-40 bg-white [&.active]:opacity-100 [&:not(.active)]:hover:opacity-75 ${
+                className={`aspect-square w-3 cursor-pointer rounded-full bg-white opacity-40 transition [&.active]:opacity-100 [&:not(.active)]:hover:opacity-75 ${
                   member.name === name && 'active'
                 }`}
               />
@@ -66,12 +66,12 @@ const CrewPage = () => {
           <motion.div
             key={member.name}
             variants={variant}
-            className=' md:pr-10 w-full flex items-center justify-center'
+            className='flex w-full items-center justify-center md:pr-10'
           >
             <Image
               src={member.image}
               alt={member.role}
-              className='w-[330px] md:w-[500px] '
+              className='w-[330px] md:w-[500px]'
             />
           </motion.div>
         </AnimatePresence>

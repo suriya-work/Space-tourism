@@ -8,11 +8,11 @@ const NotFoundPage = () => {
   const router = useRouter()
 
   return (
-    <div className=' flex h-[85vh] justify-center items-center flex-col gap-5'>
+    <div className='flex h-[85vh] flex-col items-center justify-center gap-5'>
       <NotFoundAnimation />
       <button
         onClick={() => router.back()}
-        className='nav-text uppercase relative hover:text-white hover:bg-transparent transition-all duration-300 w-[210px] flex items-center justify-center py-2 rounded-lg border-2 border-white/50 hover:border-white bg-white text-black'
+        className='nav-text relative flex w-[210px] items-center justify-center rounded-lg border-2 border-white/50 bg-white py-2 uppercase text-black transition-all duration-300 hover:border-white hover:bg-transparent hover:text-white'
       >
         Back to previous page
       </button>

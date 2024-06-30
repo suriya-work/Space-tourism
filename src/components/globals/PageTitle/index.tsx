@@ -17,9 +17,9 @@ export default function PageTitle({ title, number }: PageTitleProps) {
       initial='hidden'
       animate='visible'
       exit='exit'
-      className='md:w-fit nav-text uppercase md:mt-12 mt-5 lg:ml-28 md:ml-20 md:block flex w-full justify-center text-white md:text-[20px] md:tracking-[3.38px] lg:text-[28px] lg:tracking-[4.72px] relative z-20'
+      className='nav-text relative z-20 mt-5 flex w-full justify-center uppercase text-white md:ml-20 md:mt-12 md:block md:w-fit md:text-[20px] md:tracking-[3.38px] lg:ml-28 lg:text-[28px] lg:tracking-[4.72px]'
     >
-      <span data-testid='title-index' className='font-bold opacity-25 mr-5'>
+      <span data-testid='title-index' className='mr-5 font-bold opacity-25'>
         0{number}
       </span>
       <span data-testid='title-text' className=''>

@@ -4,9 +4,9 @@ import Astronaut from '@/components/animations/Astronaut'
 
 const SignUpPage = () => {
   return (
-    <div className='flex flex-col-reverse lg:flex-row items-center lg:justify-center lg:gap-10 gap-3 w-full lg:h-screen'>
+    <div className='flex w-full flex-col-reverse items-center gap-3 lg:h-screen lg:flex-row lg:justify-center lg:gap-10'>
       <Astronaut />
-      <div className=' pt-12 lg:pt-5'>
+      <div className='pt-12 lg:pt-5'>
         <SignUp />
       </div>
     </div>

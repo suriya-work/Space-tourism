@@ -7,7 +7,10 @@ import notFoundAnimData from '@/assets/animation/notfoundanim.json'
 const NotFoundAnimation = () => {
   return (
     <div className=''>
-      <Lottie animationData={notFoundAnimData} className='md:h-[500px] md:w-full w-[350px]' />
+      <Lottie
+        animationData={notFoundAnimData}
+        className='w-[350px] md:h-[500px] md:w-full'
+      />
     </div>
   )
 }

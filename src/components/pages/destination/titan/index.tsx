@@ -13,13 +13,13 @@ export default function PageTitan({
       initial='hidden'
       animate='visible'
       exit='exit'
-      className={` flex flex-col lg:items-start items-center gap-y-5`}
+      className={`flex flex-col items-center gap-y-5 lg:items-start`}
     >
-      <h1 className='text-white font-normal '>TITAN</h1>
+      <h1 className='font-normal text-white'>TITAN</h1>
       <div
-        className={`font-primary text-secondary lg:text-start text-center md:max-w-96 max-w-96 `}
+        className={`max-w-96 text-center font-primary text-secondary md:max-w-96 lg:text-start`}
       >
-        <p className='text-secondary md:leading-8 leading-7 md:text-lg'>
+        <p className='leading-7 text-secondary md:text-lg md:leading-8'>
           The only moon known to have a dense atmosphere other than Earth, Titan
           is a home away from home (just a few hundred degrees colder!). As a
           bonus, you get striking views of the Rings of Saturn.
@@ -30,15 +30,15 @@ export default function PageTitan({
           initial='hidden'
           animate='visible'
           exit='exit'
-          className='grow h-0.5 bg-white-5 mt-8'
+          className='mt-8 h-0.5 grow bg-white-5'
         ></motion.div>
       </div>
-      <div className='flex md:flex-row flex-col md:gap-20 gap-5 md:text-start text-center mt-5'>
-        <div className='flex flex-col gap-y-2 '>
+      <div className='mt-5 flex flex-col gap-5 text-center md:flex-row md:gap-20 md:text-start'>
+        <div className='flex flex-col gap-y-2'>
           <span className='text-secondary lg:text-lg'>AVG. DISTANCE</span>
           <h5 className='text-white'>{distance} </h5>
         </div>
-        <div className='flex flex-col gap-y-2 items-center'>
+        <div className='flex flex-col items-center gap-y-2'>
           <span className='text-secondary lg:text-lg'>Est. travel time</span>
           <h5 className='text-white'>{travelTime}</h5>
         </div>

@@ -59,8 +59,8 @@ const DestinationPage = () => {
         desktop={desktop.src}
       />
       <PageTitle number={1} title='pick your destination' />
-      <motion.div className='relative  flex lg:flex-row flex-col justify-around  items-center h-[50vh] mt-16'>
-        <div className='flex items-center mt-10'>
+      <motion.div className='relative mt-16 flex h-[50vh] flex-col items-center justify-around lg:flex-row'>
+        <div className='mt-10 flex items-center'>
           <motion.div
             key={Math.random().toString()}
             variants={SLIDE_RIGHT}
@@ -71,7 +71,7 @@ const DestinationPage = () => {
             <Image
               src={currentDestination.image}
               alt={`image-${currentDestination.title}`}
-              className='lg:w-[400px] lg:h-[400px] md:w-[300px] md:h-[300px] w-[200px] h-[200px] '
+              className='h-[200px] w-[200px] md:h-[300px] md:w-[300px] lg:h-[400px] lg:w-[400px]'
             />
           </motion.div>
         </div>
@@ -80,24 +80,24 @@ const DestinationPage = () => {
           initial='hidden'
           animate='visible'
           exit='exit'
-          className='h-full flex items-center justify-center mt-16'
+          className='mt-16 flex h-full items-center justify-center'
         >
           <div>
-            <motion.ul className='flex items-center lg:justify-start justify-center gap-10 list-none '>
+            <motion.ul className='flex list-none items-center justify-center gap-10 lg:justify-start'>
               {destinations.map((destination, index) => (
                 <motion.li
                   key={index}
                   onClick={() => handleDestinationClick(destination)}
-                  className={`nav-text uppercase transition text-white h-[10px] cursor-pointer ${currentDestination.title === destination.title ? 'active' : ''}`}
+                  className={`nav-text h-[10px] cursor-pointer uppercase text-white transition ${currentDestination.title === destination.title ? 'active' : ''}`}
                 >
                   <motion.div
-                    className={`flex w-full relative transition  border-transparent ${currentDestination.title === destination.title ? 'border-white' : 'hover:border-white/50'}`}
+                    className={`relative flex w-full border-transparent transition ${currentDestination.title === destination.title ? 'border-white' : 'hover:border-white/50'}`}
                   >
-                    <span className='block mb-3'>{destination.title}</span>
+                    <span className='mb-3 block'>{destination.title}</span>
                     {currentDestination.title === destination.title && (
                       <motion.span
                         layoutId='underline-text'
-                        className='absolute bottom-0 right-0 w-full h-1 bg-white'
+                        className='absolute bottom-0 right-0 h-1 w-full bg-white'
                       />
                     )}
                   </motion.div>

@@ -24,9 +24,9 @@ export default function TechnologyPage() {
         desktop={desktop.src}
       />
       <PageTitle number={3} title='Space Launch 101' />
-      <main className='relative z-10 w-full mt-10 '>
-        <div className='flex flex-col lg:flex-row-reverse mt-5 lg:pl-24'>
-          <div className='w-full lg:w-[35%] lg:min-h-[35vh] '>
+      <main className='relative z-10 mt-10 w-full'>
+        <div className='mt-5 flex flex-col lg:flex-row-reverse lg:pl-24'>
+          <div className='w-full lg:min-h-[35vh] lg:w-[35%]'>
             <motion.picture
               key={technology.name}
               variants={FADE}
@@ -38,35 +38,34 @@ export default function TechnologyPage() {
               />
               <Image
                 src={technology.landscape}
-                className='object-cover w-full h-auto'
+                className='h-auto w-full object-cover'
                 alt='Background Image'
               />
             </motion.picture>
           </div>
-          <div className='flex flex-col items-center mt-8 md:mt-14 lg:flex-row lg:grow lg:mt-0'>
-            <div className='w-fit flex gap-4 mb-6 md:mb-11 lg:flex-col lg:mb-0 lg:gap-8'>
+          <div className='mt-8 flex flex-col items-center md:mt-14 lg:mt-0 lg:grow lg:flex-row'>
+            <div className='mb-6 flex w-fit gap-4 md:mb-11 lg:mb-0 lg:flex-col lg:gap-8'>
               {technologies.map(({ name }, index) => (
                 <div
                   onClick={() => setActual(index)}
                   key={name}
-                  className={`w-10 md:w-14 aspect-square flex items-center justify-center text-white border rounded-full border-white/20 transition cursor-pointer
-                                    [&.active]:border-transparent [&.active]:bg-white [&.active]:text-primary [&:not(.active)]:hover:border-white ${
-                                      technology.name === name && 'active'
-                                    }`}
+                  className={`flex aspect-square w-10 cursor-pointer items-center justify-center rounded-full border border-white/20 text-white transition md:w-14 [&.active]:border-transparent [&.active]:bg-white [&.active]:text-primary [&:not(.active)]:hover:border-white ${
+                    technology.name === name && 'active'
+                  }`}
                 >
                   {index + 1}
                 </div>
               ))}
             </div>
-            <div className='text-secondary text-center px-6 md:max-w-lg md:mx-auto lg:text-left lg:max-w-xl'>
-              <span className='block nav-text uppercase mb-2 text-[14px] md:text-[16px] '>
+            <div className='px-6 text-center text-secondary md:mx-auto md:max-w-lg lg:max-w-xl lg:text-left'>
+              <span className='nav-text mb-2 block text-[14px] uppercase md:text-[16px]'>
                 The Terminology ...
               </span>
-              <h3 className='uppercase mb-4 text-white text-[24px] md:text-[40px] lg:text-[56px] '>
+              <h3 className='mb-4 text-[24px] uppercase text-white md:text-[40px] lg:text-[56px]'>
                 {' '}
                 {technology.name}{' '}
               </h3>
-              <p className='leading-relaxed lg:leading-loose lg:text-[18px]'>
+              <p className='leading-relaxed lg:text-[18px] lg:leading-loose'>
                 {' '}
                 {technology.description}{' '}
               </p>

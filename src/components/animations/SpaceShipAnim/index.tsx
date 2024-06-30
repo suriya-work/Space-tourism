@@ -6,7 +6,7 @@ import spaceShipAnimData from '@/assets/animation/ship3.json'
 
 const SpaceShipAnim = () => {
   return (
-    <div className=' absolute lg:top-10 top-[50%] '>
+    <div className='absolute top-[50%] lg:top-10'>
       <Lottie animationData={spaceShipAnimData} className=' ' />
     </div>
   )
